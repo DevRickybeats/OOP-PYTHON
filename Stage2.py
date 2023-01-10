@@ -121,8 +121,9 @@ class MovieList:
         if not isinstance(movie, MoveRecord):  # Check if the argument is a Movie object
             raise TypeError("The argument must be a MoveRecord object")
 
-        # Add the movie object to the dictionary with its title as key and itself as value
-        self.movies[movie._title] = movie
+        # Add the movie object to the dictionary with its Id as key and its title as value
+        self.movies[movie._id] = movie._title
+        # print(self.movies)
 
     def search_movie(self, title, genre, release_date):
         """Searches through the movie collection and finds a movie by one or more
@@ -153,8 +154,8 @@ class MovieList:
         title (str): The title of the movie to be removed from the collection.
         Returns: True if successful, False otherwise."""
 
-       # Iterate through each movie in the collection
-        for i in range(len(movies)):
+        # Iterate through each movie in the collection
+        for i in range(len(self.movies)):
 
             # Check if titles match
             if movies[i].title == title:
@@ -170,9 +171,16 @@ class MovieList:
 
 
 a1 = MoveRecord('2Sugar', 2022, 'Afro', "1996")
+b1 = MoveRecord('PostgreSql', 2015, 'White', '1888')
 
-print(a1._title)
-print(a1.get_release_date())
-print(a1.get_title())
-a1.set_title('yeah yeah')
-print(a1.get_title())
+# print(a1._title)
+# print(a1.get_release_date())
+# print(a1.get_title())
+# a1.set_title('yeah yeah')
+# print(a1.get_title())
+
+m2 = MovieList()
+# print(m2)
+m2.add_movie(a1)
+m2.add_movie(b1)
+# print(m2.add_movie('Faith'))
