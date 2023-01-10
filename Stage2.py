@@ -169,6 +169,29 @@ class MovieList:
         # Return False as removal was unsuccessful
         return False
 
+    def get_total_movies(self, collection):
+        """ This method calculates and returns the total number of movies stored in the collection.
+        Parameters: 
+        collection (list): A list of movie objects
+        Returns: 
+        int: The total number of movies stored in the collection
+        Raises: TypeError: If the input is not a list """
+
+        # Check if the input is a list, if not raise a TypeError
+        if not isinstance(collection, list):
+            raise TypeError("Input must be a list")
+
+        # Initialize a counter to 0
+        total_movies = 0
+
+        # Iterate through each item in the collection and increment the counter by 1 for each movie object found.
+        for item in collection:
+            # Check if item is an instance of Movie class.
+            if isinstance(item, Movie):
+                total_movies += 1
+
+        return total_movies
+
 
 a1 = MoveRecord('2Sugar', 2022, 'Afro', "1996")
 b1 = MoveRecord('PostgreSql', 2015, 'White', '1888')
