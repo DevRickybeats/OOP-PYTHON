@@ -124,8 +124,9 @@ class MovieList:
         # Add the movie object to the dictionary with its title as key and itself as value
         self.movies[movie._title] = movie
 
-    def search_movie(title, genre, release_date):
-        """Searches through the movie collection and finds a movie by one or more of the following movie attributes: title, genre or release date.
+    def search_movie(self, title, genre, release_date):
+        """Searches through the movie collection and finds a movie by one or more
+        of the following movie attributes: title, genre or release date.
         Parameters:
         title (str): The title of the movie to search for.
         genre (str): The genre of the movie to search for.
@@ -136,7 +137,7 @@ class MovieList:
         matching_movies = []
 
         # Iterate through each movie in the collection
-        for movie in MoveRecord:
+        for movie in self.movies:
             # Check if all criteria match
             if (title == movie.title or title == None) and (genre == movie.genre or genre == None) and (release_date == movie.release_date or release_date == None):
 
@@ -153,7 +154,7 @@ class MovieList:
         Returns: True if successful, False otherwise."""
 
        # Iterate through each movie in the collection
-       for i in range(len(movies)):
+        for i in range(len(movies)):
 
             # Check if titles match
             if movies[i].title == title:
