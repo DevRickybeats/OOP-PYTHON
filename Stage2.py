@@ -66,9 +66,10 @@ class MoveRecord:
         Args:release_date (datetime object): Release date of movie.
         Raises: TypeError: If release date is not a datetime object."""
 
-    # Check if release date is datetime object
-        if not isinstance(release_date, datetime.datetime):
-            raise TypeError("Release date must be a datetime object")
+    # # Check if release date is datetime object
+    #     if not isinstance(release_date, datetime.datetime):
+    #         raise TypeError("Release date must be a datetime object")
+
         # Set release date of movie
         self._release_date = release_date
 
@@ -147,7 +148,7 @@ class MovieList:
             # Return the list of matching movies
             return matching_movies
 
-    def remove_movie(title):
+    def remove_movie(self, title):
         """Removes a movie from the collection based on its title.
         Parameters:
         title (str): The title of the movie to be removed from the collection.
@@ -157,10 +158,10 @@ class MovieList:
         for i in range(len(self.movies)):
 
             # Check if titles match
-            if movies[i].title == title:
+            if self.movies[i].title == title:
 
                 # If titles match, remove it from the collection
-                del movies[i]
+                del self.movies[i]
 
                 # Return True as removal was successful
                 return True
