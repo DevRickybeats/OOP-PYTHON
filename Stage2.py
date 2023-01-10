@@ -136,27 +136,21 @@ class MovieList:
         matching_movies = []
 
         # Iterate through each movie in the collection
-        for movie in movies:
-
+        for movie in MoveRecord:
             # Check if all criteria match
             if (title == movie.title or title == None) and (genre == movie.genre or genre == None) and (release_date == movie.release_date or release_date == None):
 
                 # If all criteria match, add it to the list of matching movies
                 matching_movies.append(movie)
 
-    # Return the list of matching movies
-    return matching_movies
+            # Return the list of matching movies
+            return matching_movies
 
-
-def remove_movie(title):
-    """Removes a movie from the collection based on its title.
-
-    Parameters:
+    def remove_movie(title):
+        """Removes a movie from the collection based on its title.
+        Parameters:
         title (str): The title of the movie to be removed from the collection.
-
-    Returns:
-        True if successful, False otherwise.
-     """
+        Returns: True if successful, False otherwise."""
 
        # Iterate through each movie in the collection
        for i in range(len(movies)):
