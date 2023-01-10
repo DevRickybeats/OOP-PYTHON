@@ -141,7 +141,6 @@ class MovieList:
         for movie in self.movies:
             # Check if all criteria match
             if (title == movie.title or title == None) and (genre == movie.genre or genre == None) and (release_date == movie.release_date or release_date == None):
-
                 # If all criteria match, add it to the list of matching movies
                 matching_movies.append(movie)
 
@@ -184,3 +183,4 @@ m2 = MovieList()
 m2.add_movie(a1)
 m2.add_movie(b1)
 # print(m2.add_movie('Faith'))
+print(m2.search_movie('Faith', 'Afro', 1995))
