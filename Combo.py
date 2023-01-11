@@ -263,7 +263,7 @@ class Actors:
 
 
 class Actorslist:
-    def __init__(self) -> None:
+    def __init__(self):
         self.Actorslist = []
 
     def store_actors_object(self, value):
