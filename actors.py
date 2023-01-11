@@ -17,7 +17,7 @@ class Actors:
         # retrieves the actors first name
         return self.first_name
 
-    @first_name.setter
+    # @first_name.setter
     def first_name(self, value):
         # sets the first name of the actor
         # throws an exeption if the value is empty or not of a string type
@@ -32,7 +32,7 @@ class Actors:
         # retrieves the surname of the actor
         return self.surname
 
-    @surname.setter
+    # @surname.setter
     def surname(self, value):
         # sets the surname of the actor
         # throws an exeption if the value is empty or not of a string type
@@ -46,7 +46,7 @@ class Actors:
         # retrieves the movie genre
         return self.gender
 
-    @gender.setter
+    # @gender.setter
     def gender(self, value):
         # sets the gender of the actor
         # throws an exeption if the value is not empty or not of a string type
@@ -61,7 +61,7 @@ class Actors:
         # retrieves the actors date of birth
         return self.date_of_birth
 
-    @date_of_birth.setter
+    # @date_of_birth.setter
     def date_of_birth(self, value):
         # sets the movie release_date
         # throws an exeption if the value is not empty or not of a string type and if the date format is not of the pattern MM/DD/YYYY
@@ -81,7 +81,7 @@ class Actorslist:
     def __init__(self) -> None:
         self.Actorslist = []
 
-    def store_actors_objet(self, value):
+    def store_actors_object(self, value):
         if not isinstance(value, Actors):
             raise TypeError("Actor must be of Actors object")
         self.Actorslist.append({
@@ -120,7 +120,7 @@ class Actorslist:
 
     def search_actors_list(self, val, is_first_name=True):
         """
-        Search through the stored actors collection using the firstname, 
+        Search through the stored actors collection using the firstname,
         - first format the input to all lowercase and the value searching for in order to annul the case-sensitive nature when searching
         """
         if not isinstance(val, str):
@@ -130,13 +130,22 @@ class Actorslist:
         val = val.lower()
 
         for actor in self.Actorslist:
-            # if is_title:
             if actor['first_name'].lower() == val:
                 return actor
-            # if is_genre:
-            #     if movie['genre'].lower() == val:
-            #         return movie
-            # if is_release_date:
-            #     if movie['release_date'].lower() == val:
-            #         return movie
         raise Exception("Actor Data not found")
+
+
+Denzel = Actors('Denzel', 'Washington', 'male', '11/11/1111')
+Brent = Actors('Brent', 'Faiyaz', 'female', '12/02/2019')
+
+print(Denzel.first_name)
+print(Denzel.gender)
+print(Denzel.date_of_birth)
+
+actorData = Actorslist()
+actorData.store_actors_object(Denzel)
+actorData.store_actors_object(Brent)
+
+print(actorData.actorsInfo)
+print(actorData.actors_length)
+print(actorData.search_actors_list('Brent'))
