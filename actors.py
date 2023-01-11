@@ -117,3 +117,26 @@ class Actorslist:
     def actors_length(self):
         # retrieves the total no of actors stored in the collection
         return len(self.Actorslist)
+
+    def search_actors_list(self, val, is_first_name=True):
+        """
+        Search through the stored actors collection using the firstname, 
+        - first format the input to all lowercase and the value searching for in order to annul the case-sensitive nature when searching
+        """
+        if not isinstance(val, str):
+            raise TypeError("Search value must be a string")
+        if not val:
+            raise TypeError("Search value cannot be empty")
+        val = val.lower()
+
+        for actor in self.Actorslist:
+            # if is_title:
+            if actor['first_name'].lower() == val:
+                return actor
+            # if is_genre:
+            #     if movie['genre'].lower() == val:
+            #         return movie
+            # if is_release_date:
+            #     if movie['release_date'].lower() == val:
+            #         return movie
+        raise Exception("Actor Data not found")
