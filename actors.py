@@ -1,3 +1,6 @@
+import re
+
+
 class Actors:
     """A class to represent Actors"""
 
@@ -77,3 +80,40 @@ class Actors:
 class Actorslist:
     def __init__(self) -> None:
         self.Actorslist = []
+
+    def store_actors_objet(self, value):
+        if not isinstance(value, Actors):
+            raise TypeError("Actor must be of Actors object")
+        self.Actorslist.append({
+            "first_name": value.first_name,
+            "surname": value.surname,
+            "gender": value.gender,
+            "date_of_birth": value.date_of_birth,
+        })
+
+    def remove_actor(self, value):
+        """
+        Removes the actor that has the firstname provided in function params value
+        first format the input to all lowercase and the value searching for in order
+        to anull the case-sensitive nature when searching
+        """
+        if not isinstance(value, str):
+            raise TypeError("Firstname must be a string")
+        if not value:
+            raise TypeError("Firstname cannot be empty")
+        value = value.lower()
+        for i in range(len(self.Actorslist)):
+            if self.Actorslist[i]['title'].lower() == value:
+                del self.Actorslist[i]
+                return "Actors Data was Deleted Successfully"
+        raise Exception("Actors Data not found")
+
+    @property
+    def actorsInfo(self):
+        # retrieves the actors store data
+        return self.Actorslist
+
+    @property
+    def actors_length(self):
+        # retrieves the total no of actors stored in the collection
+        return len(self.Actorslist)

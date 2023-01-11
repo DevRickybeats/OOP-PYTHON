@@ -171,7 +171,8 @@ class MovieList:
     def remove_movie(self, value):
         """
         Removes the movie that has the title provided in function params value
-        first format the input to all lowercase and the value searching for in order to anull the case-sensitive nature when searching
+        first format the input to all lowercase and the value searching for in order to
+        anull the case-sensitive nature when searching
         """
         if not isinstance(value, str):
             raise TypeError("Title must be a string")
