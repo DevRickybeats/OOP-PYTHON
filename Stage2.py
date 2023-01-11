@@ -1,4 +1,5 @@
 import random
+import re
 
 
 class MovieRecord:
@@ -73,7 +74,7 @@ class MovieRecord:
         if (not valid):
             raise TypeError(
                 "Invalid release_date format, the date should be in MM/DD/YYYY format")
-        self.__release_date = value
+        self.release_date = value
 
     # Retrieve Title
     def get_title(self):
@@ -214,6 +215,7 @@ movie.title = "Anti"
 print(movie.title)
 print(movie.year)
 movie.release_date = "12/02/2001"
+# movie.set_release_date('11/11/1111')
 print(movie.release_date)
 print(movie.genre)
 print(movie.id)
