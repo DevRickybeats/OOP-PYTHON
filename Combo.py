@@ -1,4 +1,8 @@
 import random
+
+'''
+ Import re is a module in Python that provides regular expression matching operations.
+ It is used to search for patterns in strings, and to manipulate and process strings.'''
 import re
 
 
