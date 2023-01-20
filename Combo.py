@@ -1,12 +1,10 @@
 import random
 
-'''
- Import re is a module in Python that provides regular expression matching operations.
- It is used to search for patterns in strings, and to manipulate and process strings.'''
+'''Import regex is a module that provides regular expression matching operations.'''
 import re
 
 
-class MovieRecord:
+class Movies:
     """A class to represent a movie record"""
 
     def __init__(self, title, year, genre, release_date):
@@ -77,6 +75,9 @@ class MovieRecord:
             raise TypeError("Release_date must be a string")
         if not value:
             raise TypeError("Release_date cannot be empty")
+        # This regular expression is used to validate a date in the format MM/DD/YYYY.
+        # It checks that the month is between 01 and 12, the day is between 01 and 31,
+        # and that there are exactly 4 digits for the year.
         valid: bool = re.search(
             "^(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1])/[0-9]{4}$", value)
         if (not valid):
@@ -134,7 +135,7 @@ class MovieList:
 
     def add_movie(self, value):
         # A method to add a movie object to the collection
-        if not isinstance(value, MovieRecord):  # Check if the argument is a Movie object
+        if not isinstance(value, Movies):  # Check if the argument is a Movie object
             raise TypeError("The argument must be a MoveRecord object")
 
         self.__movieList.append({
@@ -323,8 +324,8 @@ class Actorslist:
 
 
 '''A movie object named ‘007’ with all the details required for a movie'''
-themovie007 = MovieRecord(title="James Bond", year=2022,
-                          genre="Action", release_date="11/11/2022")
+themovie007 = Movies(title="James Bond", year=2022,
+                     genre="Action", release_date="11/11/2022")
 
 '''A movie list object named ‘actions’ that contains the ‘007’ object in the object’s collection.'''
 actions = MovieList()
@@ -352,3 +353,6 @@ print(all_actors.actorsInfo())
 '''A statement to call the actor list object method to remove the details of the actor 
 James Bond from the collection'''
 print(all_actors.remove_actor("James"))
+
+'''A statement to call the actor list object method to get the number of objects in its collection.'''
+print(all_actors.actors_length())
