@@ -3,15 +3,15 @@ import datetime
 
 
 class Movies:
-    def __init__(self, title, year, genre, release_date):
+    def __init__(self):
         """
         Constructor method to create new movie records with a randomly generated ID, title, year, genre and release date.
         """
         self.id = random.randint(1, 10000)
-        self.title = title
-        self.year = year
-        self.genre = genre
-        self.release_date = release_date
+        self.title = None
+        self.year = None
+        self.genre = None
+        self.release_date = None
 
     def set_title(self, title):
         """
@@ -23,7 +23,7 @@ class Movies:
         """
         Method to set the release year of the movie.
         """
-        if year < 1888:
+        if year < 1888:  # the earliest year of a motion picture
             raise ValueError(
                 "Invalid year. Year should be greater than or equal to 1888.")
         self.year = year
@@ -218,7 +218,11 @@ class ActorsList:
 
 
 # create a movie object named '007'
-movie_007 = Movies("007", 2020, "Action", datetime.datetime(2002, 2, 25))
+movie_007 = Movies()
+movie_007.set_title('007')
+movie_007.set_year(2020)
+movie_007.set_genre('Action')
+movie_007.set_release_date(datetime.date(2018, 11, 1))
 
 # create a movie list object named 'actions'
 actions = MovieList()
@@ -247,6 +251,8 @@ print("First Name:", james_bond.get_first_name())
 print("Surname:", james_bond.get_surname())
 print("Gender:", james_bond.get_gender())
 print("Date of birth:", james_bond.get_date_of_birth())
+
+print(all_actors.get_actor_by_name('James'))
 
 # call the actor list object method to remove the details of the actor James Bond from the collection
 all_actors.remove_actor("James")
