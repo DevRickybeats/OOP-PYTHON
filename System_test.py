@@ -4,6 +4,7 @@ import Actors
 import ActorsList
 import datetime
 
+
 # create a movie object named '007'
 movie_007 = Movies.Movies()
 movie_007.set_title('007')
@@ -11,6 +12,7 @@ movie_007.set_year(2020)
 movie_007.set_genre('Action')
 movie_007.set_release_date(datetime.date(2018, 11, 1))
 
+print(movie_007.id)
 # create a movie list object named 'actions'
 actions = MovieList.MovieList()
 actions.add_movie(movie_007)
